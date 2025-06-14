@@ -7,3 +7,6 @@ In this series I'm collecting helpful hints and tricks to make the most out of i
 
 ## Articles
 > Note: Each linked article comes with a runnable code example.
+
+* **[Reuse Project Version from `pyproject.toml` for FastAPI](./articles/fastapi-version-in-openapi/)**  
+Explains, how the `version` key from the `pyproject.toml` file could be injected into FastAPI and shown as the version number of your backend application in the OpenAPI documentation.

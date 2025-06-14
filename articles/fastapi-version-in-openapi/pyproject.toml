@@ -1,0 +1,50 @@
+[project]
+name = "example-backend"
+version = "0.1.2"
+description = "Example Backend"
+readme = "README.md"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+license = "MIT"
+requires-python = ">=3.11,<4"
+dependencies = [
+    "fastapi[standard]>=0.115.12",
+    "pydantic-settings>=2.9.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.13",
+]
+
+[tool.uv]
+package = false
+
+
+# === mypy configuration ==============================================================================================
+[tool.mypy]
+strict = true
+
+
+# === Ruff configuration ==============================================================================================
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    # The following is for the docstring plugin, to make it less whiny. We are happy if we have docs on all functions.
+    "D100", # Missing docstring in public module
+    "D101", # Missing docstring in public class
+    "D104", # Missing docstring in public package
+]
+
+[tool.ruff.lint.flake8-type-checking]
+# Add quotes around type annotations, if doing so would allow
+# an import to be moved into a type-checking block.
+quote-annotations = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
