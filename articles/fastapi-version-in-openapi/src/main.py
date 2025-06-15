@@ -8,7 +8,7 @@ from fastapi import FastAPI
 
 from settings import AppSettings
 
-settings = AppSettings()  # type: ignore[call-arg]
+settings = AppSettings()
 
 app = FastAPI(
     title="Example Backend",
