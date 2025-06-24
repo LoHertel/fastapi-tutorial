@@ -11,5 +11,10 @@ In this series I'm collecting helpful hints and tricks to make the most out of i
 * **[Reuse Project Version from `pyproject.toml` for FastAPI](./articles/fastapi-version-in-openapi/)**  
 Explains, how the `version` key from the `pyproject.toml` file could be injected into FastAPI and shown as the version number of your backend application in the OpenAPI documentation.
 
+* **[Use OpenAPI Tags to Document Groups of Endpoints in FastAPI](./articles/openapi-tag-metadata/)**  
+Group FastAPI endpoints using OpenAPI tags to create clearer, more navigable API documentation — with the help of additional descriptions and external links.
+
 * **[Workaround for Hierarchical Tags in FastAPI](./articles/hierarchical-tags-workaround/)**  
 An approach for using a naming convention to visually represent nested structures in the generated OpenAPI documentation.
+
+
