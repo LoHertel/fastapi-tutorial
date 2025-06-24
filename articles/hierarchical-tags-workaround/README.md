@@ -12,7 +12,7 @@ Therefore, it's not currently possible to display nested tags like this in the g
 
 > Note: Support for [hierarchical tags](https://github.com/OAI/OpenAPI-Specification/pull/4288) is expected to arrive in the OpenAPI specification 3.2.0 at the earliest, which is currently planned for August 2025. After that, FastAPI and Swagger UI / Redoc will also need to adopt the new version. I don't expect these changes to be available any time soon.
 
-Therefore, I'm describing a workaround for the time being which is [based on the idea](https://stackoverflow.com/a/41803677/8057078) of resembling a hirarchical structure inside of tag names.
+Therefore, I'm describing a workaround for the time being which is [based on the idea](https://stackoverflow.com/a/41803677/8057078) of resembling a hierarchical structure inside of tag names.
 
 ## Workaround
 
@@ -77,11 +77,11 @@ Therefore, I suggest defining all tags as `Enum` at a central location in the co
 
 ```python
 # tags.py
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 
-class Tags(str, Enum):
+class Tags(StrEnum):
     customers = "Customers"
     customers_individual = "Customers · Individual"
     customers_business = "Customers · Business"
@@ -91,8 +91,8 @@ class Tags(str, Enum):
     products = "Products"
 
 
-# the order of the tags in the Enum class defines the order of the tags in the API documentation
-tags_metadata: list[dict[str, Any]] = [{"name": tag.value} for tag in Tags]
+# the order of the members in the Enum class defines the order of the tags in the API documentation
+tags_metadata: list[dict[str, Any]] = [{"name": tag} for tag in Tags]
 ```
 
 The defined tags can be used in FastAPI endpoints like so (`tags=[Tags.customers_individual]`):

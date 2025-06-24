@@ -1,8 +1,8 @@
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 
-class Tags(str, Enum):
+class Tags(StrEnum):
     customers = "Customers"
     customers_individual = "Customers · Individual"
     customers_business = "Customers · Business"
@@ -12,5 +12,5 @@ class Tags(str, Enum):
     products = "Products"
 
 
-# the order of the tags in the Enum class defines the order of the tags in the API documentation
-tags_metadata: list[dict[str, Any]] = [{"name": tag.value} for tag in Tags]
+# the order of the members in the Enum class defines the order of the tags in the API documentation
+tags_metadata: list[dict[str, Any]] = [{"name": tag} for tag in Tags]
